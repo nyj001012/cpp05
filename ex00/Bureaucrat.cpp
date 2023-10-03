@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 14:35:48 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:24:32 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void): _name("yena"), _grade(1) {
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
+  if (grade < 1)
+    throw std::out_of_range(INCREASE_GRADE_ERROR);
+  if (grade > 150)
+    throw std::out_of_range(DECREASE_GRADE_ERROR);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {

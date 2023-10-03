@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 14:41:49 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:23:27 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ class Bureaucrat {
   int _grade;
 
  public:
-  Bureaucrat(void);
+  Bureaucrat(std::string name, int grade);
   Bureaucrat(const Bureaucrat &other);
   Bureaucrat &operator=(const Bureaucrat &other);
-  ~Bureaucrat(void);
+  ~Bureaucrat();
 
-  std::string getName(void) const;
-  int getGrade(void) const;
+  std::string getName() const;
+  int getGrade() const;
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
 };
