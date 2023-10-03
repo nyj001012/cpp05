@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:24:32 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:25:49 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
   if (grade < 1)
-    throw std::out_of_range(INCREASE_GRADE_ERROR);
+    throw std::out_of_range(HIGH_GRADE_ERROR);
   if (grade > 150)
-    throw std::out_of_range(DECREASE_GRADE_ERROR);
+    throw std::out_of_range(HIGH_GRADE_ERROR);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
@@ -35,26 +35,26 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   return (*this);
 }
 
-Bureaucrat::~Bureaucrat(void) {
+Bureaucrat::~Bureaucrat() {
 
 }
 
-std::string Bureaucrat::getName(void) const {
+std::string Bureaucrat::getName() const {
   return (this->_name);
 }
 
-int Bureaucrat::getGrade(void) const {
+int Bureaucrat::getGrade() const {
   return (this->_grade);
 }
 
 void Bureaucrat::increaseGrade(int grade) {
   if (this->_grade - grade < 1)
-    throw (char *)INCREASE_GRADE_ERROR;
+    throw (char *)HIGH_GRADE_ERROR;
   this->_grade -= grade;
 }
 
 void Bureaucrat::decreaseGrade(int grade) {
   if (this->_grade + grade > 150)
-    throw (char *)DECREASE_GRADE_ERROR;
+    throw (char *)HIGH_GRADE_ERROR;
   this->_grade += grade;
 }

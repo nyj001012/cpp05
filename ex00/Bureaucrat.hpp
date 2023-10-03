@@ -20,8 +20,8 @@
 #include <iostream>
 
 // error message
-#define INCREASE_GRADE_ERROR "Error: Higher than 1"
-#define DECREASE_GRADE_ERROR "Error: Lower than 150"
+#define HIGH_GRADE_ERROR "Error: Higher than 1"
+#define LOW_GRADE_ERROR "Error: Lower than 150"
 
 // font colour
 #define F_BLACK "\033[0;30m"
