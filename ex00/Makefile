@@ -3,7 +3,7 @@ SRCS = main.cpp \
 	   Bureaucrat.cpp
 OBJS = ${SRCS:.cpp=.o}
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 RM = rm -f
 
 all:	${NAME}
