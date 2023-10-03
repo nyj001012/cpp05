@@ -6,30 +6,34 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 14:44:10 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:28:54 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 int main(void) {
-  Bureaucrat bureaucrat;
-  int adder;
+  Bureaucrat bureaucrat = Bureaucrat("yena", 1);
+
+  std::cout << "------------- INITIALISE TEST --------------" << std::endl;
+  try {
+    Bureaucrat error = Bureaucrat("error", 159);
+  } catch (const std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
 
   std::cout << "-------------- DECREASE GRADE --------------" << std::endl;
   std::cout << "bureaucrat's grade: " << bureaucrat.getGrade() << std::endl;
   try {
     std::cout << "* decrease 149" << std::endl;
-    adder = 149;
-    bureaucrat.decreaseGrade(adder);
+    bureaucrat.decreaseGrade(149);
     std::cout << "bureaucrat's grade: " << bureaucrat.getGrade() << std::endl;
     std::cout << "* decrease 70" << std::endl;
-    adder = 70;
-    bureaucrat.decreaseGrade(adder);
+    bureaucrat.decreaseGrade(70);
   }
-  catch (char *error_message) {
+  catch (const std::exception &e) {
     std::cout << F_RED
-              << error_message << " (adder: " << adder << ")"
+              << e.what()
               << FB_DEFAULT << std::endl;
   }
 
@@ -37,16 +41,14 @@ int main(void) {
   std::cout << "bureaucrat's grade: " << bureaucrat.getGrade() << std::endl;
   try {
     std::cout << "* increase 100" << std::endl;
-    adder = 100;
-    bureaucrat.increaseGrade(adder);
+    bureaucrat.increaseGrade(100);
     std::cout << "bureaucrat's grade: " << bureaucrat.getGrade() << std::endl;
     std::cout << "* increase 51" << std::endl;
-    adder = 51;
-    bureaucrat.increaseGrade(adder);
+    bureaucrat.increaseGrade(51);
   }
-  catch (char *error_message) {
+  catch (const std::exception &e) {
     std::cout << F_RED
-              << error_message << " (adder: " << adder << ")"
+              << e.what()
               << FB_DEFAULT << std::endl;
   }
   return (0);
