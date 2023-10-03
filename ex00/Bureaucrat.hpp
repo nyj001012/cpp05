@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:23:27 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:31:50 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
  * @property _grade: ranges from 1 (highest possible grade) to
  *                   150 (lowest possible grade)
  */
-class Bureaucrat {
+ class Bureaucrat {
  private:
   const std::string _name;
   int _grade;
@@ -55,5 +55,7 @@ class Bureaucrat {
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
 };
+
+ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 
 #endif //CPP05_EX00_BUREAUCRAT_HPP_
