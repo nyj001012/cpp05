@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:32:54 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:38:30 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
     throw std::out_of_range(HIGH_GRADE_ERROR);
   if (grade > 150)
     throw std::out_of_range(HIGH_GRADE_ERROR);
+  this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
@@ -60,6 +61,9 @@ void Bureaucrat::decreaseGrade(int grade) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
-  os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+  os << bureaucrat.getName()
+     << ", bureaucrat grade "
+     << std::to_string(bureaucrat.getGrade())
+     << ".";
   return os;
 }
