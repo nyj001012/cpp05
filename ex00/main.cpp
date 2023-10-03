@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:33:39 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/03 16:38:11 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main(void) {
 
   std::cout << "------------- INITIALISE TEST --------------" << std::endl;
   try {
+    std::cout << "* initialise with grade 159" << std::endl;
     Bureaucrat error = Bureaucrat("error", 159);
   } catch (const std::exception &e) {
     std::cerr << F_RED
