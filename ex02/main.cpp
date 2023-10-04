@@ -6,52 +6,48 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 15:14:08 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:36:48 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void) {
   Bureaucrat bureaucrat = Bureaucrat("yena", 50);
-  AForm form = AForm("AForm", 50);
+  ShrubberyCreationForm shrubbery = ShrubberyCreationForm("grow_trees");
 
-  std::cout << "------------- INITIALISE TEST --------------" << std::endl;
-  try {
-    std::cout << "* initialise with grade -1" << std::endl;
-    AForm error = form("error", -1);
-  } catch (const std::exception &e) {
-    std::cerr << F_RED
-              << e.what()
-              << FB_DEFAULT << std::endl;
-  }
+  std::cout << "------------ SHRUBBERY SIGN TEST (success) -----------" << std::endl;
+  std::cout << bureaucrat << std::endl;
+  std::cout << shrubbery << std::endl;
+  bureaucrat.signForm(shrubbery);
+  std::cout << shrubbery << std::endl;
   std:: cout << std::endl;
 
-  std::cout << "------------ SIGN TEST (SUCCESS) -----------" << std::endl;
-  std::cout << bureaucrat << std::endl;
-  std::cout << form << std::endl;
-  form.beSigned(bureaucrat);
-  bureaucrat.signForm(form);
-  std::cout << form << std::endl;
-  std:: cout << std::endl;
+  std::cout << "------------- SHRUBBERY SIGN TEST (ERROR) ------------" << std::endl;
+  ShrubberyCreationForm errorShrubbery = ShrubberyCreationForm("error");
+  Bureaucrat pettyBureaucrat = Bureaucrat("petty", 150);
+  std::cout << pettyBureaucrat << std::endl;
+  std::cout << errorShrubbery << std::endl;
+  pettyBureaucrat.signForm(errorShrubbery);
+  std::cout << std::endl;
 
-  std::cout << "------------- SIGN TEST (ERROR) ------------" << std::endl;
-  AForm topSecret = AForm("topSecret", 1);
+  std::cout << "----- SHRUBBERY EXECUTE TEST (success) -----" << std::endl;
   std::cout << bureaucrat << std::endl;
-  std::cout << topSecret << std::endl;
-  try {
-	topSecret.beSigned(bureaucrat);
-	bureaucrat.signForm(topSecret);
-  }
-  catch (const std::exception &e) {
-    std::cout << F_RED
-			  << bureaucrat.getName()
-			  << " cannot sign "
-			  << topSecret.getName()
-			  << " because "
-              << e.what()
-              << FB_DEFAULT << std::endl;
-  }
+  std::cout << shrubbery << std::endl;
+  bureaucrat.executeForm(shrubbery);
+  std::cout << std::endl;
+
+  std::cout << "-- SHRUBBERY EXECUTE TEST (ERROR: NO SIGN) --" << std::endl;
+  std::cout << bureaucrat << std::endl;
+  std::cout << errorShrubbery << std::endl;
+  bureaucrat.executeForm(errorShrubbery);
+  std::cout << std::endl;
+
+  std::cout << "-- SHRUBBERY EXECUTE TEST (ERROR: TOO LOW) --" << std::endl;
+  std::cout << pettyBureaucrat << std::endl;
+  std::cout << shrubbery << std::endl;
+  pettyBureaucrat.executeForm(shrubbery);
+  std::cout << std::endl;
   return (0);
 }
