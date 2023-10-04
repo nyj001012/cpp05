@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:13:01 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:34:51 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:47:16 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ void Form::beSigned(const Bureaucrat &bureaucrat) {
   if (bureaucrat.getGrade() > this->_grade)
 	throw Form::GradeTooLowException();
   this->_isSigned = true;
+}
+
+std::ostream &operator<<(std::ostream &os, const Form &form) {
+  os << "Form: " << form.getName()
+	 << "\tgrade required: " << std::to_string(form.getGrade())
+	 << "\tis signed: " << std::to_string(form.getIsSigned());
+  return os;
 }

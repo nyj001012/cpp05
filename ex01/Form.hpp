@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:42:55 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:37:42 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:46:42 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class Form {
   int getGrade() const;
   void beSigned(const Bureaucrat &bureaucrat);
 };
+
+std::ostream &operator<<(std::ostream &os, const Form &form);
 
 class GradeTooHighException : public std::exception {
  public:
