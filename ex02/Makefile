@@ -18,7 +18,7 @@ ${NAME}:	${OBJS}
 		@${CXX} ${CXXFLAGS} -I . -c $< -o ${<:.cpp=.o}
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} *_shrubbery
 
 fclean:	clean
 		${RM} ${NAME}
