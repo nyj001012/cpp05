@@ -6,51 +6,48 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:56:11 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:55:27 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void) {
-  Bureaucrat bureaucrat = Bureaucrat("yena", 1);
+  Bureaucrat bureaucrat = Bureaucrat("yena", 50);
+  Form form = Form("form", 50);
 
   std::cout << "------------- INITIALISE TEST --------------" << std::endl;
   try {
-    std::cout << "* initialise with grade 159" << std::endl;
-    Bureaucrat error = Bureaucrat("error", 159);
+    std::cout << "* initialise with grade -1" << std::endl;
+    Form error = Form("error", -1);
   } catch (const std::exception &e) {
     std::cerr << F_RED
               << e.what()
               << FB_DEFAULT << std::endl;
   }
 
-  std::cout << "-------------- DECREASE GRADE --------------" << std::endl;
+  std::cout << "------------ SIGN TEST (SUCCESS) -----------" << std::endl;
   std::cout << bureaucrat << std::endl;
-  try {
-    std::cout << "* decrease 149" << std::endl;
-    bureaucrat.decreaseGrade(149);
-    std::cout << bureaucrat << std::endl;
-    std::cout << "* decrease 70" << std::endl;
-    bureaucrat.decreaseGrade(70);
-  }
-  catch (const std::exception &e) {
-    std::cout << F_RED
-              << e.what()
-              << FB_DEFAULT << std::endl;
-  }
+  std::cout << form << std::endl;
+  form.beSigned(bureaucrat);
+  bureaucrat.signForm(form);
+  std::cout << form << std::endl;
 
-  std::cout << "-------------- INCREASE GRADE --------------" << std::endl;
+  std::cout << "------------- SIGN TEST (ERROR) ------------" << std::endl;
+  Form topSecret = Form("topSecret", 1);
   std::cout << bureaucrat << std::endl;
+  std::cout << form << std::endl;
   try {
-    std::cout << "* increase 100" << std::endl;
-    bureaucrat.increaseGrade(100);
-    std::cout << bureaucrat << std::endl;
-    std::cout << "* increase 51" << std::endl;
-    bureaucrat.increaseGrade(51);
+	form.beSigned(bureaucrat);
+	bureaucrat.signForm(form);
   }
   catch (const std::exception &e) {
     std::cout << F_RED
+			  << bureaucrat.getName()
+			  << " cannot sign "
+			  << form.getName()
+			  << " because "
               << e.what()
               << FB_DEFAULT << std::endl;
   }
