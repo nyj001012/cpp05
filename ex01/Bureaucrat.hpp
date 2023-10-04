@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 17:11:05 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:28:49 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #define CPP05_EX00_BUREAUCRAT_HPP_
 
 #include <iostream>
+#include "Form.hpp"
 
 // font colour
 #define F_BLACK "\033[0;30m"
@@ -50,6 +51,7 @@
   int getGrade() const;
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
+  void signForm(Form &form);
 
   class GradeTooHighException: public std::exception {
    public:
@@ -58,7 +60,7 @@
      * @return const char *errorMessage
      */
     virtual const char *what() const throw() {
-      return "Error: too high grade";
+      return "Error: too high grade to increase";
     }
   };
 
@@ -69,7 +71,7 @@
      * @return const char *errorMessage
      */
     const char *what() const throw() {
-      return "Error: too low grade";
+      return "Error: too low grade to decrease";
     }
   };
 };
