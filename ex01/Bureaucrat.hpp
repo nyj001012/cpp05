@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:28:49 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:38:10 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
      * @return const char *errorMessage
      */
     virtual const char *what() const throw() {
-      return "Error: too high grade to increase";
+      return "Error: Bureaucrat: too high grade to increase";
     }
   };
 
@@ -71,7 +71,7 @@
      * @return const char *errorMessage
      */
     const char *what() const throw() {
-      return "Error: too low grade to decrease";
+      return "Error: Bureaucrat: too low grade to decrease";
     }
   };
 };
