@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:58:03 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:07:45 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <iostream>
 #include "AForm.hpp"
 
-class Form;
+class AForm;
 
 // font colour
 #define F_BLACK "\033[0;30m"
@@ -53,7 +53,7 @@ class Form;
   int getGrade() const;
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
-  void signForm(Form &form);
+  void signForm(AForm &form);
 
   class GradeTooHighException: public std::exception {
    public:
