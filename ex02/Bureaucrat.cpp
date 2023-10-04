@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 16:05:41 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:29:18 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,9 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 }
 
 void Bureaucrat::signForm(AForm &form) {
-  if (form.getIsSigned())
-	std::cout << this->getName() << " signed " << form.getName() << std::endl;
-  else {
 	try {
-	  form.beSigned(*this);
+	  if (!form.getIsSigned())
+	  	form.beSigned(*this);
 	  std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	} catch (std::exception &e) {
 	  std::cout << F_RED;
@@ -81,5 +79,16 @@ void Bureaucrat::signForm(AForm &form) {
 	  std::cout << e.what() << std::endl;
 	  std::cout << FB_DEFAULT;
 	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) {
+  try {
+	form.execute(*this);
+	std::cout << this->getName() << " executes " << form.getName() << std::endl;
+  } catch (std::exception &e) {
+	std::cout << F_RED;
+	std::cout << this->getName() << " cannot execute " << form.getName() << " because ";
+	std::cout << e.what() << std::endl;
+	std::cout << FB_DEFAULT;
   }
 }

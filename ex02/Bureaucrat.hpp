@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 16:07:45 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:15:10 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ class AForm;
   Bureaucrat(const Bureaucrat &other);
   Bureaucrat &operator=(const Bureaucrat &other);
   ~Bureaucrat();
-
   std::string getName() const;
   int getGrade() const;
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
   void signForm(AForm &form);
+  void executeForm(AForm const &form);
 
   class GradeTooHighException: public std::exception {
    public:
