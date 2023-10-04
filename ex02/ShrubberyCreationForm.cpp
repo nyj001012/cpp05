@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:15:14 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 16:00:38 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:19:02 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const {
   if (bureaucrat.getGrade() > this->getGradeToExecute())
 	throw ShrubberyCreationForm::GradeTooLowException();
+  else if (!this->getIsSigned())
+	throw ShrubberyCreationForm::FormNotSignedException();
   else {
 	std::ofstream file;
 	file.open(this->getName());

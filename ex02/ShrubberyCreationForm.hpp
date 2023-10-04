@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:15:14 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 15:46:48 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:19:35 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ class ShrubberyCreationForm: public AForm {
    public:
 	virtual const char *what() const throw() {
 	  return "Error: ShrubberyCreationForm: file open error";
+	}
+  };
+
+  class FormNotSignedException : public std::exception {
+   public:
+	virtual const char *what() const throw() {
+	  return "Error: ShrubberyCreationForm: form is not signed";
 	}
   };
 };
