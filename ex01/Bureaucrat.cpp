@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:55:55 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:46:00 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,20 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
      << std::to_string(bureaucrat.getGrade())
      << ".";
   return os;
+}
+
+void signForm(Form &form) {
+  if (form.getIsSigned())
+	std::cout << this.getName() << " signed " << form.getName() << std::endl;
+  else {
+	try {
+	  form.beSigned(*this);
+	  std::cout << this.getName() << " signed " << form.getName() << std::endl;
+	} catch (std::exception &e) {
+	  std::cout << F_RED;
+	  std::cout << this.getName() << " cannot sign " << form.getName() << " because ";
+	  std::cout << e.what() << std::endl;
+	  std::cout << FB_DEFAULT;
+	}
+  }
 }
