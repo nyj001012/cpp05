@@ -1,24 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:01:58 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 15:12:42 by yena             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 14:13:01 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 15:01:57 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 16:09:08 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +16,16 @@
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, int grade): _name(name), _grade(grade) {
-  if (grade < 1)
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute)
+	: _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+  if (gradeToSign < 1 || gradeToExecute < 1)
 	throw AForm::GradeTooHighException();
-  if (grade > 150)
+  if (gradeToSign > 150 || gradeToExecute > 150)
 	throw AForm::GradeTooLowException();
   this->_isSigned = false;
 }
 
-AForm::AForm(const AForm &other): _name(other._name), _grade(other._grade) {
+AForm::AForm(const AForm &other): _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
   if (this != &other) {
 	this->_isSigned = other._isSigned;
   }
@@ -61,8 +50,12 @@ bool AForm::getIsSigned() const {
   return this->_isSigned;
 }
 
-int AForm::getGrade() const {
-  return this->_grade;
+int AForm::getGradeToSign() const {
+  return this->_gradeToSign;
+}
+
+int AForm::getGradeToExecute() const {
+  return this->_gradeToExecute;
 }
 
 /**
@@ -70,14 +63,15 @@ int AForm::getGrade() const {
  * @param bureaucrat
  */
 void AForm::beSigned(const Bureaucrat &bureaucrat) {
-  if (bureaucrat.getGrade() > this->_grade)
+  if (bureaucrat.getGrade() > this->_gradeToSign)
 	throw AForm::GradeTooLowException();
   this->_isSigned = true;
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm) {
-  os << "AForm: " << AForm.getName()
-	 << "\tgrade required: " << std::to_string(AForm.getGrade())
+  os << "Form: " << AForm.getName()
+	 << "\tgrade to sign required: " << std::to_string(AForm.getGradeToSign())
+	 << "\tgrade to execute required: " << std::to_string(AForm.getGradeToExecute())
 	 << "\tis signed: " << std::to_string(AForm.getIsSigned());
   return os;
 }
