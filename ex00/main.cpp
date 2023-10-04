@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:56:11 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 15:06:55 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(void) {
               << e.what()
               << FB_DEFAULT << std::endl;
   }
+  std:: cout << std::endl;
 
   std::cout << "-------------- DECREASE GRADE --------------" << std::endl;
   std::cout << bureaucrat << std::endl;
@@ -39,6 +40,7 @@ int main(void) {
               << e.what()
               << FB_DEFAULT << std::endl;
   }
+  std:: cout << std::endl;
 
   std::cout << "-------------- INCREASE GRADE --------------" << std::endl;
   std::cout << bureaucrat << std::endl;

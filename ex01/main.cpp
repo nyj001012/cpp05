@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 15:02:37 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 15:06:28 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(void) {
               << e.what()
               << FB_DEFAULT << std::endl;
   }
+  std:: cout << std::endl;
 
   std::cout << "------------ SIGN TEST (SUCCESS) -----------" << std::endl;
   std::cout << bureaucrat << std::endl;
@@ -33,6 +34,7 @@ int main(void) {
   form.beSigned(bureaucrat);
   bureaucrat.signForm(form);
   std::cout << form << std::endl;
+  std:: cout << std::endl;
 
   std::cout << "------------- SIGN TEST (ERROR) ------------" << std::endl;
   Form topSecret = Form("topSecret", 1);
