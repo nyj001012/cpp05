@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:38:10 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 14:58:03 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 #include <iostream>
 #include "Form.hpp"
+
+class Form;
 
 // font colour
 #define F_BLACK "\033[0;30m"

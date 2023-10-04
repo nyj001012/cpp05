@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:13:01 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:47:16 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 15:01:57 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,23 @@
 
 #include "Form.hpp"
 
-Form::Form(std::string name, int grade): _name(name) {
+Form::Form(std::string name, int grade): _name(name), _grade(grade) {
   if (grade < 1)
 	throw Form::GradeTooHighException();
   if (grade > 150)
 	throw Form::GradeTooLowException();
   this->_isSigned = false;
-  this->_grade = grade;
 }
 
-Form::Form(const Form &other): _name(other._name) {
+Form::Form(const Form &other): _name(other._name), _grade(other._grade) {
   if (this != &other) {
 	this->_isSigned = other._isSigned;
-	this->_grade = other._grade;
   }
 }
 
 Form &Form::operator=(const Form &other) {
   if (this != &other) {
 	this->_isSigned = other._isSigned;
-	this->_grade = other._grade;
   }
   return *this;
 }

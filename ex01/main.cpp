@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 14:55:27 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/04 15:02:37 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ int main(void) {
   std::cout << "------------- SIGN TEST (ERROR) ------------" << std::endl;
   Form topSecret = Form("topSecret", 1);
   std::cout << bureaucrat << std::endl;
-  std::cout << form << std::endl;
+  std::cout << topSecret << std::endl;
   try {
-	form.beSigned(bureaucrat);
-	bureaucrat.signForm(form);
+	topSecret.beSigned(bureaucrat);
+	bureaucrat.signForm(topSecret);
   }
   catch (const std::exception &e) {
     std::cout << F_RED
 			  << bureaucrat.getName()
 			  << " cannot sign "
-			  << form.getName()
+			  << topSecret.getName()
 			  << " because "
               << e.what()
               << FB_DEFAULT << std::endl;
