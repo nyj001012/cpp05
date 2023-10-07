@@ -17,11 +17,11 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm(target + "_robotomy", 72, 45) {
+	: Form(target + "_robotomy", 72, 45) {
   this->_target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): AForm(other) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other): Form(other) {
   if (this != &other)
 	*this = other;
 }

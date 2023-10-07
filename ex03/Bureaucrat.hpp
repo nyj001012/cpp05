@@ -18,9 +18,9 @@
 #define CPP05_EX00_BUREAUCRAT_HPP_
 
 #include <iostream>
-#include "AForm.hpp"
+#include "Form.hpp"
 
-class AForm;
+class Form;
 
 // font colour
 #define F_BLACK "\033[0;30m"
@@ -52,8 +52,8 @@ class AForm;
   int getGrade() const;
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
-  void signForm(AForm &form);
-  void executeForm(AForm const &form);
+  void signForm(Form &form);
+  void executeForm(Form const &form);
 
   class GradeTooHighException: public std::exception {
    public:

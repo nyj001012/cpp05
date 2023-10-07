@@ -17,11 +17,11 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: AForm(target + "_presidential_pardon", 25, 5) {
+	: Form(target + "_presidential_pardon", 25, 5) {
   this->_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other): AForm(other) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other): Form(other) {
   if (this != &other)
 	*this = other;
 }

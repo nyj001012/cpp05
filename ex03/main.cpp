@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 08:05:25 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 08:37:36 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,70 +14,52 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void) {
-  Bureaucrat bureaucrat = Bureaucrat("yena", 50);
-  ShrubberyCreationForm shrubbery = ShrubberyCreationForm("grow_trees");
+  Bureaucrat bureaucrat = Bureaucrat("yena", 20);
+  Intern intern = Intern();
 
-  std::cout << "------------ SHRUBBERY SIGN TEST (SUCCESS) -----------" << std::endl;
+  std::cout << "------------ CREATE FORM TEST (SUCCESS) -----------" << std::endl;
+  Form *shrubbery = intern.makeForm("shrubbery creation", "home");
+  Form *robotomy = intern.makeForm("robotomy request", "bender");
+  Form *presidential = intern.makeForm("presidential pardon", "Biden");
+  std::cout << *shrubbery << std::endl;
+  std::cout << *robotomy << std::endl;
+  std::cout << *presidential << std::endl;
+  std::cout << std::endl;
+
+  std::cout << "------------- CREATE FORM TEST (ERROR) ------------" << std::endl;
+  try {
+	Form *error = intern.makeForm("error", "error");
+	(void)error;
+  } catch (const std::exception &e) {
+	std::cerr << F_RED
+			  << e.what()
+			  << FB_DEFAULT << std::endl;
+  }
+
+  std::cout << "-------------------- SIGN TEST --------------------" << std::endl;
   std::cout << bureaucrat << std::endl;
-  std::cout << shrubbery << std::endl;
-  bureaucrat.signForm(shrubbery);
-  std::cout << shrubbery << std::endl;
-  std:: cout << std::endl;
-
-  std::cout << "------------- SHRUBBERY SIGN TEST (ERROR) ------------" << std::endl;
-  ShrubberyCreationForm errorShrubbery = ShrubberyCreationForm("error");
-  Bureaucrat pettyBureaucrat = Bureaucrat("petty", 150);
-  std::cout << pettyBureaucrat << std::endl;
-  std::cout << errorShrubbery << std::endl;
-  pettyBureaucrat.signForm(errorShrubbery);
+  std::cout << *shrubbery << std::endl;
+  std::cout << *robotomy << std::endl;
+  std::cout << *presidential << std::endl;
+  bureaucrat.signForm(*shrubbery);
+  bureaucrat.signForm(*robotomy);
+  bureaucrat.signForm(*presidential);
   std::cout << std::endl;
 
-  std::cout << "---------- SHRUBBERY EXECUTE TEST (SUCCESS) ----------" << std::endl;
+  std::cout << "------------------- EXECUTE TEST ------------------" << std::endl;
   std::cout << bureaucrat << std::endl;
-  std::cout << shrubbery << std::endl;
-  bureaucrat.executeForm(shrubbery);
-  std::cout << std::endl;
+  std::cout << *shrubbery << std::endl;
+  std::cout << *robotomy << std::endl;
+  std::cout << *presidential << std::endl;
+  bureaucrat.executeForm(*shrubbery);
+  bureaucrat.executeForm(*robotomy);
+  bureaucrat.executeForm(*presidential);
 
-  std::cout << "------ SHRUBBERY EXECUTE TEST (ERROR: NO SIGN) -------" << std::endl;
-  std::cout << bureaucrat << std::endl;
-  std::cout << errorShrubbery << std::endl;
-  bureaucrat.executeForm(errorShrubbery);
-  std::cout << std::endl;
-
-  std::cout << "------ SHRUBBERY EXECUTE TEST (ERROR: TOO LOW) -------" << std::endl;
-  std::cout << pettyBureaucrat << std::endl;
-  std::cout << shrubbery << std::endl;
-  pettyBureaucrat.executeForm(shrubbery);
-  std::cout << std::endl;
-
-  std::cout << "------------- ROBOTOMY SIGN TEST (SUCCESS) -------------" << std::endl;
-  RobotomyRequestForm robotomy = RobotomyRequestForm("Tychus J. Findlay");
-  std::cout << bureaucrat << std::endl;
-  std::cout << robotomy << std::endl;
-  bureaucrat.signForm(robotomy);
-  std::cout << std::endl;
-
-  std::cout << "---------- ROBOTOMY EXECUTE TEST (SUCCESS) -----------" << std::endl;
-  std::cout << bureaucrat << std::endl;
-  std::cout << robotomy << std::endl;
-  bureaucrat.executeForm(robotomy);
-  std::cout << std::endl;
-
-  std::cout << "------- PRESIDENTIAL PARDON SIGN TEST (SUCCESS) ------" << std::endl;
-  PresidentialPardonForm pardon = PresidentialPardonForm("agenda");
-  Bureaucrat president = Bureaucrat("Mr. president", 1);
-  std::cout << president << std::endl;
-  std::cout << pardon << std::endl;
-  president.signForm(pardon);
-  std::cout << std::endl;
-
-  std::cout << "----- PRESIDENTIAL PARDON EXECUTE TEST (SUCCESS) -----" << std::endl;
-  Bureaucrat primeMinister = Bureaucrat("Mr. primeMinister", 2);
-  std::cout << primeMinister << std::endl;
-  std::cout << pardon << std::endl;
-  primeMinister.executeForm(pardon);
-
+  delete shrubbery;
+  delete robotomy;
+  delete presidential;
   return (0);
 }

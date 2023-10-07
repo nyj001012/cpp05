@@ -17,11 +17,11 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: AForm(target + "_shrubbery", 145, 137) {
+	: Form(target + "_shrubbery", 145, 137) {
   this->_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other): AForm(other) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other): Form(other) {
   if (this != &other)
 	*this = other;
 }

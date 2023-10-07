@@ -68,7 +68,7 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
   return os;
 }
 
-void Bureaucrat::signForm(AForm &form) {
+void Bureaucrat::signForm(Form &form) {
 	try {
 	  if (!form.getIsSigned())
 	  	form.beSigned(*this);
@@ -81,7 +81,7 @@ void Bureaucrat::signForm(AForm &form) {
 	}
 }
 
-void Bureaucrat::executeForm(AForm const &form) {
+void Bureaucrat::executeForm(Form const &form) {
   try {
 	std::cout << this->getName() << " executes " << form.getName() << std::endl;
 	form.execute(*this);
