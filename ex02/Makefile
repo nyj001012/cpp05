@@ -2,7 +2,8 @@ NAME = bureaucrat
 SRCS = main.cpp \
 	   Bureaucrat.cpp \
 	   AForm.cpp \
-	   ShrubberyCreationForm.cpp
+	   ShrubberyCreationForm.cpp \
+	   RobotomyRequestForm.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
