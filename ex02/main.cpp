@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 08:02:15 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 08:05:25 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,17 @@ int main(void) {
 
   std::cout << "------- PRESIDENTIAL PARDON SIGN TEST (SUCCESS) ------" << std::endl;
   PresidentialPardonForm pardon = PresidentialPardonForm("agenda");
-  std::cout << bureaucrat << std::endl;
+  Bureaucrat president = Bureaucrat("Mr. president", 1);
+  std::cout << president << std::endl;
   std::cout << pardon << std::endl;
-  bureaucrat.signForm(pardon);
+  president.signForm(pardon);
   std::cout << std::endl;
 
   std::cout << "----- PRESIDENTIAL PARDON EXECUTE TEST (SUCCESS) -----" << std::endl;
-  std::cout << bureaucrat << std::endl;
+  Bureaucrat primeMinister = Bureaucrat("Mr. primeMinister", 2);
+  std::cout << primeMinister << std::endl;
   std::cout << pardon << std::endl;
-  bureaucrat.executeForm(pardon);
-  std::cout << std::endl;
+  primeMinister.executeForm(pardon);
 
   return (0);
 }
