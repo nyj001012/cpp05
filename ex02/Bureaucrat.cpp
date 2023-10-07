@@ -6,7 +6,7 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 16:29:18 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 07:50:07 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ void Bureaucrat::signForm(AForm &form) {
 
 void Bureaucrat::executeForm(AForm const &form) {
   try {
-	form.execute(*this);
 	std::cout << this->getName() << " executes " << form.getName() << std::endl;
+	form.execute(*this);
   } catch (std::exception &e) {
 	std::cout << F_RED;
 	std::cout << this->getName() << " cannot execute " << form.getName() << " because ";
