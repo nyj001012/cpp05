@@ -6,13 +6,14 @@
 /*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:48:42 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 08:02:15 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void) {
   Bureaucrat bureaucrat = Bureaucrat("yena", 50);
@@ -53,6 +54,8 @@ int main(void) {
 
   std::cout << "------------- ROBOTOMY SIGN TEST (SUCCESS) -------------" << std::endl;
   RobotomyRequestForm robotomy = RobotomyRequestForm("Tychus J. Findlay");
+  std::cout << bureaucrat << std::endl;
+  std::cout << robotomy << std::endl;
   bureaucrat.signForm(robotomy);
   std::cout << std::endl;
 
@@ -60,6 +63,19 @@ int main(void) {
   std::cout << bureaucrat << std::endl;
   std::cout << robotomy << std::endl;
   bureaucrat.executeForm(robotomy);
+  std::cout << std::endl;
+
+  std::cout << "------- PRESIDENTIAL PARDON SIGN TEST (SUCCESS) ------" << std::endl;
+  PresidentialPardonForm pardon = PresidentialPardonForm("agenda");
+  std::cout << bureaucrat << std::endl;
+  std::cout << pardon << std::endl;
+  bureaucrat.signForm(pardon);
+  std::cout << std::endl;
+
+  std::cout << "----- PRESIDENTIAL PARDON EXECUTE TEST (SUCCESS) -----" << std::endl;
+  std::cout << bureaucrat << std::endl;
+  std::cout << pardon << std::endl;
+  bureaucrat.executeForm(pardon);
   std::cout << std::endl;
 
   return (0);

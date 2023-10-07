@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:21:34 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:42:11 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/08 07:54:13 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm(target + "_robotomy", 145, 137) {
+	: AForm(target + "_robotomy", 72, 45) {
   this->_target = target;
 }
 
