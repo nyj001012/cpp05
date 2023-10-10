@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 17:57:32 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 18:31:33 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
-  if (grade < 1)
-    throw Bureaucrat::GradeTooHighException();
-  if (grade > 150)
-    throw Bureaucrat::GradeTooLowException();
-  this->_grade = grade;
+  try {
+    if (grade < 1)
+      throw Bureaucrat::GradeTooHighException();
+    if (grade > 150)
+      throw Bureaucrat::GradeTooLowException();
+    this->_grade = grade;
+  } catch (std::exception &e) {
+    std::cout << F_RED
+              << e.what()
+              << FB_DEFAULT << std::endl;
+  }
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) {
@@ -49,15 +55,27 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::increaseGrade(int grade) {
-  if (this->_grade - grade < 1)
-    throw Bureaucrat::GradeTooHighException();
-  this->_grade -= grade;
+  try {
+    if (this->_grade - grade < 1)
+      throw Bureaucrat::GradeTooHighException();
+    this->_grade -= grade;
+  } catch (std::exception &e) {
+    std::cout << F_RED
+              << e.what()
+              << FB_DEFAULT << std::endl;
+  }
 }
 
 void Bureaucrat::decreaseGrade(int grade) {
-  if (this->_grade + grade > 150)
-    throw Bureaucrat::GradeTooLowException();
-  this->_grade += grade;
+  try {
+    if (this->_grade + grade > 150)
+      throw Bureaucrat::GradeTooLowException();
+    this->_grade += grade;
+  } catch (std::exception &e) {
+    std::cout << F_RED
+              << e.what()
+              << FB_DEFAULT << std::endl;
+  }
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
