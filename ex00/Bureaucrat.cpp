@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:02:37 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 17:57:32 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ Bureaucrat::~Bureaucrat() {
 }
 
 std::string Bureaucrat::getName() const {
-  return (this->_name);
+  return this->_name;
 }
 
 int Bureaucrat::getGrade() const {
-  return (this->_grade);
+  return this->_grade;
 }
 
 void Bureaucrat::increaseGrade(int grade) {

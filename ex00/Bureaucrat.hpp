@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
+/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 17:11:05 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 17:57:21 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@
  * @property _grade: ranges from 1 (highest possible grade) to
  *                   150 (lowest possible grade)
  */
- class Bureaucrat {
- private:
-  const std::string _name;
-  int _grade;
-
+class Bureaucrat {
  public:
   Bureaucrat(std::string name, int grade);
   Bureaucrat(const Bureaucrat &other);
@@ -68,10 +64,15 @@
      * @override std::exception
      * @return const char *errorMessage
      */
-    const char *what() const throw() {
+    virtual const char *what() const throw() {
       return "Error: too low grade";
     }
   };
+
+  private:
+    const std::string _name;
+    int _grade;
+
 };
 
  std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
