@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 19:01:30 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:58:01 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,9 @@
 #include <iostream>
 
 #include "AForm.hpp"
+#include "font.hpp"
 
 class AForm;
-
-// font colour
-#define F_BLACK "\033[0;30m"
-#define F_RED "\033[0;31m"
-#define F_GREEN "\033[0;32m"
-#define F_YELLOW "\033[0;33m"
-#define F_BLUE "\033[0;34m"
-#define F_MAGENTA "\033[0;35m"
-#define F_CYAN "\033[0;36m"
-#define F_WHITE "\033[0;37m"
-#define FB_DEFAULT "\033[0m"
 
 /**
  * @property _name: constant name
