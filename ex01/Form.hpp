@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:42:55 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:19:33 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:03:36 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EX01__FORM_HPP_
 #define EX01__FORM_HPP_
 
+#include <iomanip>
 #include <iostream>
+
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -24,12 +26,6 @@ class Bureaucrat;
  * @private const int _grade (1 ~ 150)
  */
 class Form {
- private:
-  const std::string _name;
-  bool _isSigned;
-  const int _gradeToSign;
-  const int _gradeToExecute;
-
  public:
   Form(std::string name, int gradeToSign, int gradeToExecute);
   Form(const Form &other);
@@ -43,19 +39,25 @@ class Form {
 
   class GradeTooHighException : public std::exception {
    public:
-    virtual const char* what() const throw() {
+    virtual const char *what() const throw() {
       return "Error: Form: grade is too high";
     }
   };
 
   class GradeTooLowException : public std::exception {
    public:
-    virtual const char* what() const throw() {
+    virtual const char *what() const throw() {
       return "Error: Form: grade is too low";
     }
   };
+
+ private:
+  const std::string _name;
+  bool _isSigned;
+  const int _gradeToSign;
+  const int _gradeToExecute;
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &form);
 
-#endif //EX01__FORM_HPP_
+#endif  // EX01__FORM_HPP_

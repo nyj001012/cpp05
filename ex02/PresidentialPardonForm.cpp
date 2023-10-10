@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:52:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:49:50 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:04:15 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: AForm(target + "_presidential_pardon", 25, 5) {
+    : AForm(target, 25, 5) {
   this->_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other): AForm(other) {
-  if (this != &other)
-	  *this = other;
+PresidentialPardonForm::PresidentialPardonForm(
+    const PresidentialPardonForm &other)
+    : AForm(other) {
+  if (this != &other) *this = other;
 }
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
+PresidentialPardonForm &PresidentialPardonForm::operator=(
+    const PresidentialPardonForm &other) {
   if (this != &other) {
-	  this->_target = other._target;
+    this->_target = other._target;
   }
   return *this;
 }
 
-PresidentialPardonForm::~PresidentialPardonForm() {
-
-}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
 /**
  * inform that target has been pardoned by Zaphod Beeblebrox
@@ -47,6 +47,7 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
   else if (!this->getIsSigned())
     throw PresidentialPardonForm::FormNotSignedException();
   else {
-    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox"
+              << std::endl;
   }
 }

@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 17:58:48 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 18:36:09 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,34 +47,29 @@ class Bureaucrat {
   void increaseGrade(int grade);
   void decreaseGrade(int grade);
 
-  class GradeTooHighException: public std::exception {
+  class GradeTooHighException : public std::exception {
    public:
     /**
      * @override std::exception
      * @return const char *errorMessage
      */
-    virtual const char *what() const throw() {
-      return "Error: too high grade";
-    }
+    virtual const char *what() const throw() { return "Error: too high grade"; }
   };
 
-  class GradeTooLowException: public std::exception {
+  class GradeTooLowException : public std::exception {
    public:
     /**
      * @override std::exception
      * @return const char *errorMessage
      */
-    virtual const char *what() const throw() {
-      return "Error: too low grade";
-    }
+    virtual const char *what() const throw() { return "Error: too low grade"; }
   };
 
-  private:
-    const std::string _name;
-    int _grade;
-
+ private:
+  const std::string _name;
+  int _grade;
 };
 
- std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 
-#endif //CPP05_EX00_BUREAUCRAT_HPP_
+#endif  // CPP05_EX00_BUREAUCRAT_HPP_

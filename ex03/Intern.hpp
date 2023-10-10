@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 08:09:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:55:36 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:19:36 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@
 #define CPP05_EX03_INTERN_HPP_
 
 #include <iostream>
+
 #include "Form.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 class Intern {
- private:
-
  public:
   Intern();
   Intern(const Intern &other);
@@ -40,4 +39,4 @@ class Intern {
   };
 };
 
-#endif //CPP05_EX03_INTERN_HPP_
+#endif  // CPP05_EX03_INTERN_HPP_

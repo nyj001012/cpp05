@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:30:46 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 18:40:35 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #define CPP05_EX00_BUREAUCRAT_HPP_
 
 #include <iostream>
+
 #include "Form.hpp"
 
 class Form;
@@ -38,11 +39,7 @@ class Form;
  * @property _grade: ranges from 1 (highest possible grade) to
  *                   150 (lowest possible grade)
  */
- class Bureaucrat {
- private:
-  const std::string _name;
-  int _grade;
-
+class Bureaucrat {
  public:
   Bureaucrat(std::string name, int grade);
   Bureaucrat(const Bureaucrat &other);
@@ -55,29 +52,29 @@ class Form;
   void decreaseGrade(int grade);
   void signForm(Form &form);
 
-  class GradeTooHighException: public std::exception {
+  class GradeTooHighException : public std::exception {
    public:
     /**
      * @override std::exception
      * @return const char *errorMessage
      */
-    virtual const char *what() const throw() {
-      return "Error: Bureaucrat: too high grade to increase";
-    }
+    virtual const char *what() const throw() { return "Error: too high grade"; }
   };
 
-  class GradeTooLowException: public std::exception {
+  class GradeTooLowException : public std::exception {
    public:
     /**
      * @override std::exception
      * @return const char *errorMessage
      */
-    const char *what() const throw() {
-      return "Error: Bureaucrat: too low grade to decrease";
-    }
+    virtual const char *what() const throw() { return "Error: too low grade"; }
   };
+
+ private:
+  const std::string _name;
+  int _grade;
 };
 
- std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 
-#endif //CPP05_EX00_BUREAUCRAT_HPP_
+#endif  // CPP05_EX00_BUREAUCRAT_HPP_

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:57:21 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:30:55 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int main(void) {
   Bureaucrat bureaucrat = Bureaucrat("yena", 20);
   Intern intern = Intern();
 
-  std::cout << "------------ CREATE FORM TEST (SUCCESS) -----------" << std::endl;
+  std::cout << F_GREEN
+            << "------------------- CREATE FORM TEST (SUCCESS) "
+               "------------------"
+            << FB_DEFAULT << std::endl;
   Form *shrubbery = intern.makeForm("shrubbery creation", "home");
   Form *robotomy = intern.makeForm("robotomy request", "bender");
   Form *presidential = intern.makeForm("presidential pardon", "Biden");
@@ -26,17 +29,21 @@ int main(void) {
   std::cout << *presidential << std::endl;
   std::cout << std::endl;
 
-  std::cout << "------------- CREATE FORM TEST (ERROR) ------------" << std::endl;
+  std::cout << F_GREEN
+            << "-------------------- CREATE FORM TEST (ERROR) "
+               "-------------------"
+            << FB_DEFAULT << std::endl;
   try {
     Form *error = intern.makeForm("error", "error");
     (void)error;
   } catch (const std::exception &e) {
-    std::cerr << F_RED
-          << e.what()
-          << FB_DEFAULT << std::endl;
+    std::cerr << F_RED << e.what() << FB_DEFAULT << std::endl;
   }
 
-  std::cout << "-------------------- SIGN TEST --------------------" << std::endl;
+  std::cout << F_GREEN
+            << "-------------------- SIGN FORM TEST (SUCCESS) "
+               "-------------------"
+            << FB_DEFAULT << std::endl;
   std::cout << bureaucrat << std::endl;
   std::cout << *shrubbery << std::endl;
   std::cout << *robotomy << std::endl;
@@ -46,7 +53,10 @@ int main(void) {
   bureaucrat.signForm(*presidential);
   std::cout << std::endl;
 
-  std::cout << "------------------- EXECUTE TEST ------------------" << std::endl;
+  std::cout << F_GREEN
+            << "------------ EXECUTE FORM TEST (2: SUCCESS 1: ERROR) "
+               "------------"
+            << FB_DEFAULT << std::endl;
   std::cout << bureaucrat << std::endl;
   std::cout << *shrubbery << std::endl;
   std::cout << *robotomy << std::endl;

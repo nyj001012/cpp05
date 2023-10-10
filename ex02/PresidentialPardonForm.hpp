@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:52:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:48:02 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:02:07 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@
 #define CPP05_EX02_PRESIDENTIALPARDONFORM_HPP_
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-class PresidentialPardonForm: public AForm {
- private:
-  std::string _target;
-
+class PresidentialPardonForm : public AForm {
  public:
   PresidentialPardonForm(std::string target);
   PresidentialPardonForm(const PresidentialPardonForm &other);
@@ -32,12 +30,15 @@ class PresidentialPardonForm: public AForm {
   ~PresidentialPardonForm();
   void execute(Bureaucrat const &executor) const;
 
+ private:
+  std::string _target;
+
   class FormNotSignedException : public std::exception {
    public:
     virtual const char *what() const throw() {
       return "Error: PresidentialPardonForm: form is not signed";
-	}
+    }
   };
 };
 
-#endif //CPP05_EX02_PRESIDENTIALPARDONFORM_HPP_
+#endif  // CPP05_EX02_PRESIDENTIALPARDONFORM_HPP_

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   Form.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:00:37 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 14:50:39 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:03:13 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EX01__AForm_HPP_
 #define EX01__AForm_HPP_
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
+
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -25,12 +26,6 @@ class Bureaucrat;
  * @private const int _grade (1 ~ 150)
  */
 class AForm {
- private:
-  const std::string _name;
-  bool _isSigned;
-  const int _gradeToSign;
-  const int _gradeToExecute;
-
  public:
   AForm(std::string name, int gradeToSign, int gradeToExecute);
   AForm(const AForm &other);
@@ -45,19 +40,25 @@ class AForm {
 
   class GradeTooHighException : public std::exception {
    public:
-    virtual const char* what() const throw() {
+    virtual const char *what() const throw() {
       return "Error: Form: grade is too high";
     }
   };
 
   class GradeTooLowException : public std::exception {
    public:
-    virtual const char* what() const throw() {
+    virtual const char *what() const throw() {
       return "Error: Form: grade is too low";
     }
   };
+
+ private:
+  const std::string _name;
+  bool _isSigned;
+  const int _gradeToSign;
+  const int _gradeToExecute;
 };
 
-std::ostream &operator<<(std::ostream &os, const AForm &AForm);
+std::ostream &operator<<(std::ostream &os, const AForm &Form);
 
-#endif //EX01__AForm_HPP_
+#endif  // EX01__AForm_HPP_
