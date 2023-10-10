@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
+/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/03 16:55:55 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:02:37 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
   if (grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   if (grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   this->_grade = grade;
 }
 
@@ -50,13 +50,13 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::increaseGrade(int grade) {
   if (this->_grade - grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   this->_grade -= grade;
 }
 
 void Bureaucrat::decreaseGrade(int grade) {
   if (this->_grade + grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooLowException();
   this->_grade += grade;
 }
 

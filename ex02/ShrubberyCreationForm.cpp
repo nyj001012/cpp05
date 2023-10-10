@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:15:14 by yena              #+#    #+#             */
-/*   Updated: 2023/10/04 16:19:02 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:49:14 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other): AForm(other) {
   if (this != &other)
-	*this = other;
+	  *this = other;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
   if (this != &other) {
-	this->_target = other._target;
+	  this->_target = other._target;
   }
   return *this;
 }
@@ -43,14 +43,14 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
  */
 void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const {
   if (bureaucrat.getGrade() > this->getGradeToExecute())
-	throw ShrubberyCreationForm::GradeTooLowException();
+	  throw ShrubberyCreationForm::GradeTooLowException();
   else if (!this->getIsSigned())
-	throw ShrubberyCreationForm::FormNotSignedException();
+	  throw ShrubberyCreationForm::FormNotSignedException();
   else {
-	std::ofstream file;
-	file.open(this->getName());
-	if (!file.is_open())
-	  throw ShrubberyCreationForm::FileOpenException();
+    std::ofstream file;
+    file.open(this->getName());
+    if (!file.is_open())
+      throw ShrubberyCreationForm::FileOpenException();
     file << "                   ___" << std::endl;
     file << "            _,-'\"\"   \"\"\"\"`--." << std::endl;
     file << "         ,-'          __,,-- \\" << std::endl;
@@ -73,8 +73,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const {
     file << "              dHHHb" << std::endl;
     file << "            .dFd|bHb.               o" << std::endl;
     file << "  o       .dHFdH|HbTHb.          o /" << std::endl;
-	file << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl;
-	file << "##########################################" << std::endl;
-	file.close();
- }
+    file << "\\  Y  |  \\__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl;
+    file << "##########################################" << std::endl;
+    file.close();
+  }
 }

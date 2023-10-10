@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:52:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:53:19 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:59:44 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ class PresidentialPardonForm: public Form {
 
   class FormNotSignedException : public std::exception {
    public:
-	virtual const char *what() const throw() {
-	  return "Error: PresidentialPardonForm: form is not signed";
-	}
+    virtual const char *what() const throw() {
+      return "Error: PresidentialPardonForm: form is not signed";
+    }
   };
 };
 

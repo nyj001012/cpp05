@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:21:34 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:39:26 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:47:45 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #define CPP05_EX02_ROBOTOMYREQUESTFORM_HPP_
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
@@ -34,8 +36,8 @@ class RobotomyRequestForm: public AForm {
 
   class FormNotSignedException : public std::exception {
    public:
-	virtual const char *what() const throw() {
-	  return "Error: RobotomyRequestForm: form is not signed";
+    virtual const char *what() const throw() {
+      return "Error: RobotomyRequestForm: form is not signed";
 	}
   };
 };

@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:21:34 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:54:13 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:46:35 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 	throw RobotomyRequestForm::FormNotSignedException();
   else {
 	std::cout << "* drilling noises *" << std::endl;
-	if (rand() % 2)
+	std::srand(time(NULL));
+	if (std::rand() % 2)
 	  std::cout << this->_target << " has been robotomized successfully" << std::endl;
 	else
 	  std::cout << this->_target << ": robotomization failed" << std::endl;

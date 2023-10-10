@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 08:09:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 08:31:59 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 15:04:08 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ Intern::Intern(const Intern &other) {
 }
 
 Intern &Intern::operator=(const Intern &other) {
-  if (this != &other) {
-
-  }
+  (void)other;
   return *this;
 }
 
@@ -47,13 +45,13 @@ Form *Intern::makeForm(std::string formName, std::string target) {
   Form *form;
 
   if (formName == "shrubbery creation")
-	form = new ShrubberyCreationForm(target);
+	  form = new ShrubberyCreationForm(target);
   else if (formName == "robotomy request")
-	form = new RobotomyRequestForm(target);
+  	form = new RobotomyRequestForm(target);
   else if (formName == "presidential pardon")
-	form = new PresidentialPardonForm(target);
+	  form = new PresidentialPardonForm(target);
   else
-	throw Intern::InvalidFormNameException();
+	  throw Intern::InvalidFormNameException();
   std::cout << "Intern creates " << formName << std::endl;
   return form;
 }

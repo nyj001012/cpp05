@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
+/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 08:39:09 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:57:21 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int main(void) {
 
   std::cout << "------------- CREATE FORM TEST (ERROR) ------------" << std::endl;
   try {
-	Form *error = intern.makeForm("error", "error");
-	(void)error;
+    Form *error = intern.makeForm("error", "error");
+    (void)error;
   } catch (const std::exception &e) {
-	std::cerr << F_RED
-			  << e.what()
-			  << FB_DEFAULT << std::endl;
+    std::cerr << F_RED
+          << e.what()
+          << FB_DEFAULT << std::endl;
   }
 
   std::cout << "-------------------- SIGN TEST --------------------" << std::endl;
@@ -51,6 +51,7 @@ int main(void) {
   std::cout << *shrubbery << std::endl;
   std::cout << *robotomy << std::endl;
   std::cout << *presidential << std::endl;
+  std::cout << std::endl;
   bureaucrat.executeForm(*shrubbery);
   bureaucrat.executeForm(*robotomy);
   bureaucrat.executeForm(*presidential);

@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 08:09:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 08:30:50 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:55:36 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ class Intern {
   Form *makeForm(std::string formName, std::string target);
   class InvalidFormNameException : public std::exception {
    public:
-	virtual const char *what() const throw() {
-	  return "Error: Intern: I don't know what form you want to make";
-	}
+    virtual const char *what() const throw() {
+      return "Error: Intern: I don't know what form you want to make";
+    }
   };
 };
 

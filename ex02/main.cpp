@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
+/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 08:05:25 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:51:49 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,17 @@ int main(void) {
   std::cout << std::endl;
 
   std::cout << "------------- ROBOTOMY SIGN TEST (SUCCESS) -------------" << std::endl;
-  RobotomyRequestForm robotomy = RobotomyRequestForm("Tychus J. Findlay");
+  RobotomyRequestForm robotomy = RobotomyRequestForm("Tychus");
   std::cout << bureaucrat << std::endl;
   std::cout << robotomy << std::endl;
   bureaucrat.signForm(robotomy);
   std::cout << std::endl;
 
   std::cout << "---------- ROBOTOMY EXECUTE TEST (SUCCESS) -----------" << std::endl;
-  std::cout << bureaucrat << std::endl;
+  Bureaucrat mengsk = Bureaucrat("Mengsk", 1);
+  std::cout << mengsk << std::endl;
   std::cout << robotomy << std::endl;
-  bureaucrat.executeForm(robotomy);
+  mengsk.executeForm(robotomy);
   std::cout << std::endl;
 
   std::cout << "------- PRESIDENTIAL PARDON SIGN TEST (SUCCESS) ------" << std::endl;

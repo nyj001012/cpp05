@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 07:52:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:58:15 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:49:50 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other): AForm(other) {
   if (this != &other)
-	*this = other;
+	  *this = other;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
   if (this != &other) {
-	this->_target = other._target;
+	  this->_target = other._target;
   }
   return *this;
 }
@@ -43,10 +43,10 @@ PresidentialPardonForm::~PresidentialPardonForm() {
  */
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
   if (executor.getGrade() > this->getGradeToExecute())
-	throw PresidentialPardonForm::GradeTooLowException();
+    throw PresidentialPardonForm::GradeTooLowException();
   else if (!this->getIsSigned())
-	throw PresidentialPardonForm::FormNotSignedException();
+    throw PresidentialPardonForm::FormNotSignedException();
   else {
-	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
   }
 }

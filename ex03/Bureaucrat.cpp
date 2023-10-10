@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yena <yena@studen.42.fr>                   +#+  +:+       +#+        */
+/*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:46:56 by yena              #+#    #+#             */
-/*   Updated: 2023/10/08 07:50:07 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 14:58:42 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name) {
   if (grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   if (grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooHighException();
   this->_grade = grade;
 }
 
@@ -50,13 +50,13 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::increaseGrade(int grade) {
   if (this->_grade - grade < 1)
-    throw GradeTooHighException();
+    throw Bureaucrat::GradeTooHighException();
   this->_grade -= grade;
 }
 
 void Bureaucrat::decreaseGrade(int grade) {
   if (this->_grade + grade > 150)
-    throw GradeTooLowException();
+    throw Bureaucrat::GradeTooHighException();
   this->_grade += grade;
 }
 
@@ -83,12 +83,12 @@ void Bureaucrat::signForm(Form &form) {
 
 void Bureaucrat::executeForm(Form const &form) {
   try {
-	std::cout << this->getName() << " executes " << form.getName() << std::endl;
-	form.execute(*this);
+    form.execute(*this);
+    std::cout << this->getName() << " executed " << form.getName() << std::endl;
   } catch (std::exception &e) {
-	std::cout << F_RED;
-	std::cout << this->getName() << " cannot execute " << form.getName() << " because ";
-	std::cout << e.what() << std::endl;
-	std::cout << FB_DEFAULT;
+    std::cout << F_RED;
+    std::cout << this->getName() << " cannot execute " << form.getName() << " because ";
+    std::cout << e.what() << std::endl;
+    std::cout << FB_DEFAULT;
   }
 }
