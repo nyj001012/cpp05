@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:38:38 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 19:30:55 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:48:33 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(void) {
   } catch (const std::exception &e) {
     std::cerr << F_RED << e.what() << FB_DEFAULT << std::endl;
   }
+  std::cout << std::endl;
 
   std::cout << F_GREEN
             << "-------------------- SIGN FORM TEST (SUCCESS) "

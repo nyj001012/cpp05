@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 08:09:18 by yena              #+#    #+#             */
-/*   Updated: 2023/10/10 19:17:45 by yena             ###   ########.fr       */
+/*   Updated: 2023/10/10 19:49:18 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 //
 
 #include "Intern.hpp"
+
+static const std::string formTypes[3] = {
+    "shrubbery creation", "robotomy request", "presidential pardon"};
 
 Intern::Intern() {}
 
@@ -37,16 +40,26 @@ Intern::~Intern() {}
  * @return Form*
  */
 Form *Intern::makeForm(std::string formName, std::string target) {
+  int typeNumber = 0;
   Form *form;
 
-  if (formName == "shrubbery creation")
-    form = new ShrubberyCreationForm(target);
-  else if (formName == "robotomy request")
-    form = new RobotomyRequestForm(target);
-  else if (formName == "presidential pardon")
-    form = new PresidentialPardonForm(target);
-  else
-    throw Intern::InvalidFormNameException();
+  for (typeNumber = 0; typeNumber < 3; typeNumber++) {
+    if (formName == formTypes[typeNumber]) break;
+  }
+  switch (typeNumber) {
+    case 0:
+      form = new ShrubberyCreationForm(target);
+      break;
+    case 1:
+      form = new RobotomyRequestForm(target);
+      break;
+    case 2:
+      form = new PresidentialPardonForm(target);
+      break;
+    default:
+      throw Intern::InvalidFormNameException();
+      break;
+  }
   std::cout << "Intern creates " << formName << std::endl;
   return form;
 }
